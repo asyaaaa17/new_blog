@@ -1,13 +1,10 @@
 *.pyc
 *~
-__pycache__
 myvenv
-db.sqlite3
 /static
-.DS_Store
 
-# pipenv
-Pipfile.lock
+.idea/Pipfile.lock
+db.sqlite3
+.idea
+__pycache__
 .env
-
-.idea/
