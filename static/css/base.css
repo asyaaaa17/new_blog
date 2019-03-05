@@ -1,26 +1,48 @@
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Lobster", sans-serif;
     font-size: 18px;
+    text-shadow: 3px 5px 6px #A5A9A9;
+}
+
+body {
+    padding-left: 30px;
 }
 
 header {
+    background-color: #bbebe0;
+    font-family: 'Lobster', cursive;
+    font-size: large;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    box-shadow: 6px 6px #9cddeb,
+            12px 12px #5dd7ed;
     border-bottom: 1px solid #999;
     margin-bottom: 2rem;
     display: flex;
 }
 
 header h1 a {
-    color: pink;
+    color: #ff8ba7;
     text-decoration: none;
 }
 
-.nav-left {
-    margin-right: auto;
+
+.content {
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family: 'Laksaman';
 }
 
-.nav-right {
-    display: flex;
-    padding-top: 2rem;
+.post-entry{
+    margin-bottom: 100px;
+    background-color: #F4DFF1;
+    padding: 20px 20px 20px 40px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3),
+            -23px 0 20px -23px rgba(0, 0, 0, .6),
+            23px 0 20px -23px rgba(0, 0, 0, .6),
+            inset 0 0 40px rgba(0, 0, 0, .1);
+    border-top: 3px dashed #511241;
+    border-bottom: 3px dashed #511241;
 }
 
 .post-entry{
@@ -44,4 +66,9 @@ header h1 a {
 
 .post-entry h2 a:hover {
     color: rebeccapurple;
+}
+
+.glyphicon {
+    font-size: 30px;
+    color: #a984e0;
 }

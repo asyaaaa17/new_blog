@@ -1,23 +1,47 @@
 {% load static %}
 <html>
   <head>
-    <title>Django blog</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
-    rel="stylesheet">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <title>Asya's blog</title>
   </head>
   <body>
     <div>
       <header>
         <div class="nav-left">
-          <h1><a href="{% url 'home' %}">Django blog</a></h1>
+          <h1><a href="{% url 'home' %}">Asya's blog</a></h1>
+          {% if user.is_authenticated%}
+            <h3><p>Hi {{ user.username }}</p></h3>
+          {% endif %}
         </div>
-        <div class="nav-right">
-          <a href="{% url 'post_new' %}">+ New Blog Post</a>
-        </div>
+        {% if user.is_authenticated %}
+          <div>
+            <p><a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-pencil"></span></a></p>
+            <p><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span></a></p>
+          </div>
+        {% else %}
+          <div>
+            <p><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span></a></p>
+            <p><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-plus-sign"></span></a></p>
+          </div>
+        {% endif %}
       </header>
-      {% block content %}
-      {% endblock content %}
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
     </div>
   </body>
 </html>
